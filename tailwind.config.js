@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js, jsx}"],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       screens: {
@@ -21,6 +21,7 @@ module.exports = {
           600: "hsl(189, 41%, 97%)",
         },
         white: "hsl(0, 0%, 100%)",
+        danger: "#f43f5e",
       },
       borderRadius: {
         DEFAULT: "1.25rem",
@@ -31,6 +32,10 @@ module.exports = {
       },
       fontWeight: {
         bold: "700",
+      },
+      flexGrow: {
+        2: "2",
+        3: "3",
       },
     },
     plugins: [],
