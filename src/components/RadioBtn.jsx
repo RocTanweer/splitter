@@ -15,7 +15,10 @@ function RadioBtn({ id, radioValue, name, tip, setTip }) {
         onChange={handleRadioField}
         className="absolute top-1 left-1 opacity-0 peer"
       />
-      <label htmlFor={id} className="w-full h-full py-[14px] block bg-cyan-200 text-white text-[20px]  rounded-sm cursor-pointer peer-checked:bg-cyan-100">
+      <label
+        htmlFor={id}
+        className="w-full h-full py-[14px] block bg-cyan-200 text-white text-[20px] rounded-sm cursor-pointer peer-checked:bg-cyan-100 peer-checked:text-cyan-200 hover:bg-cyan-500 hover:text-cyan-200 transition duration-300 ease-in-out"
+      >
         {`${radioValue}%`}
       </label>
     </div>
