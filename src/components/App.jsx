@@ -14,6 +14,36 @@ import logo from "../assets/logo.svg";
 function App() {
   const [tip, setTip] = useState({});
 
+  const [inputsState, setInputsState] = useState({
+    Bill: { value: "", isInvalid: false },
+    "Number of People": { value: "", isInvalid: false },
+  });
+
+  const tipAmountPerPerson = null;
+  const totalAmountPerPerson = null;
+
+  function handleInputs(newValue, label) {
+    let update1 = {
+      ...inputsState,
+      [label]: { ...inputsState[label], value: newValue, isInvalid: false },
+    };
+
+    Object.keys(inputsState).forEach((inputLabel) => {
+      if (inputLabel === label) return;
+
+      if (!inputsState[inputLabel].value) {
+        update1 = {
+          ...update1,
+          [inputLabel]: {
+            ...inputsState[inputLabel],
+            isInvalid: true,
+          },
+        };
+      }
+      setInputsState(update1);
+    });
+  }
+
   return (
     <main className="flex justify-center items-center w-full h-screen bg-cyan-500">
       <div className="flex justify-between items-center flex-col w-[923px] h-[624px] mx-auto -translate-y-9">
@@ -22,15 +52,30 @@ function App() {
             Splitter
           </h1>
           <a href="/">
-            <img src={logo} alt="Splitter" aria-labelledby="heading" className="mx-auto cursor-pointer" />
+            <img
+              src={logo}
+              alt="Splitter"
+              aria-labelledby="heading"
+              className="mx-auto cursor-pointer"
+            />
           </a>
         </div>
 
         <section className="flex justify-evenly items-center w-full h-[482px] bg-white rounded-sm">
           <form className="flex justify-between items-center flex-col w-[381px] h-[382px] rounded-sm">
-            <TextInput label="Bill" iconPath={dollarIcon} isInvalid={false} />
+            <TextInput
+              label="Bill"
+              iconPath={dollarIcon}
+              value={inputsState["Bill"]}
+              onChange={handleInputs}
+            />
             <TipField tip={tip} setTip={setTip} />
-            <TextInput label="Number of People" iconPath={personIcon} isInvalid={false} />
+            <TextInput
+              label="Number of People"
+              iconPath={personIcon}
+              value={inputsState["Number of People"]}
+              onChange={handleInputs}
+            />
           </form>
           <div className="flex justify-center items-center w-[413px] h-[417px] rounded-sm bg-cyan-200">
             <div className="flex justify-between items-center translate-y-2.5 flex-col w-[335px] h-[319px]">
