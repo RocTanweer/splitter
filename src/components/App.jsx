@@ -53,8 +53,8 @@ function App() {
   }
 
   return (
-    <main className="flex justify-center items-center w-full h-screen bg-cyan-500">
-      <div className="flex justify-between items-center flex-col w-[923px] h-[624px] mx-auto -translate-y-9">
+    <main className="flex justify-center items-center w-full h-auto md:h-screen bg-cyan-500">
+      <div className="flex justify-between items-center flex-col gap-10 md:gap-0 w-full md:w-[923px] h-auto md:h-[624px] mx-auto py-14 md:p-0  md:-translate-y-9">
         <div className="">
           <h1 id="heading" className="absolute text-[0px] opacity-0">
             Splitter
@@ -69,8 +69,8 @@ function App() {
           </a>
         </div>
 
-        <section className="flex justify-evenly items-center w-full h-[482px] bg-white rounded-sm">
-          <form className="flex justify-between items-center flex-col w-[381px] h-[382px] rounded-sm">
+        <section className="flex justify-evenly items-center flex-col md:flex-row gap-9 md:gap-0 w-[90vw] md:w-full h-auto md:h-[482px] p-5 md:p-0 bg-white rounded-sm">
+          <form className="flex justify-between items-center flex-col w-full md:w-[381px] h-[382px] rounded-sm">
             <TextInput
               label="Bill"
               iconPath={dollarIcon}
@@ -85,26 +85,30 @@ function App() {
               onChange={handleInputs}
             />
           </form>
-          <div className="flex justify-center items-center w-[413px] h-[417px] rounded-sm bg-cyan-200">
-            <div className="flex justify-between items-center translate-y-2.5 flex-col w-[335px] h-[319px]">
-              <div className="flex justify-between flex-col items-center w-full h-36">
+          <div className="flex justify-center items-center w-full md:w-[413px] h-auto md:h-[417px] rounded-sm bg-cyan-200 p-3 md:p-0">
+            <div className="flex justify-between items-center md:translate-y-2.5 flex-col w-full md:w-[335px] h-auto md:h-[319px]">
+              <div className="flex justify-center gap-5 md:gap-0 md:justify-between flex-col items-center w-full h-36">
                 <div className="flex justify-between items-center w-full">
                   <div>
-                    <p className="text-white">Tip Amount</p>
+                    <p className="text-sm md:text-base text-white">
+                      Tip Amount
+                    </p>
                     <p className="text-xs text-cyan-400">/ person</p>
                   </div>
 
-                  <p className="text-cyan-100 text-5xl">
+                  <p className="text-cyan-100 text-4xl md:text-5xl">
                     ${tipAmountPerPerson}
                   </p>
                 </div>
                 <div className="flex justify-between items-center w-full">
                   <div>
-                    <p className="text-white">Total Amount</p>
+                    <p className="text-xs md:text-base text-white">
+                      Total Amount
+                    </p>
                     <p className="text-xs text-cyan-400">/ person</p>
                   </div>
 
-                  <p className="text-cyan-100 text-5xl">
+                  <p className="text-cyan-100 text-4xl md:text-5xl">
                     ${totalAmountPerPerson}
                   </p>
                 </div>

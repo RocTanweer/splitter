@@ -6,7 +6,7 @@ function TextInput({ label, iconPath, value, onChange }) {
   };
 
   return (
-    <div className=" w-[385px] bg-white">
+    <div className="w-full md:w-96 bg-white">
       <div className="flex w-full justify-between mb-[10px] ">
         <label htmlFor="temp" className="text-cyan-300">
           {label}

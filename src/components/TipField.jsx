@@ -35,13 +35,22 @@ function TipField({ tip, setTip }) {
   };
 
   return (
-    <fieldset className="bg-white">
+    <fieldset className="bg-white w-full md:w-96">
       <legend className="mb-[20px] text-cyan-300">Select Tip %</legend>
 
-      <div className="grid grid-rows-2 grid-cols-3 place-items-center gap-y-4 gap-x-[14px] w-[380px]">
+      <div className="grid grid-rows-2 grid-cols-3 place-items-center gap-y-4 gap-x-[14px] w-full md:w-[380px]">
         {radioData.map((radio) => {
           const { id, value, name } = radio;
-          return <RadioBtn key={id} id={id} radioValue={value} name={name} tip={tip} setTip={setTip} />;
+          return (
+            <RadioBtn
+              key={id}
+              id={id}
+              radioValue={value}
+              name={name}
+              tip={tip}
+              setTip={setTip}
+            />
+          );
         })}
         <input
           type="text"
@@ -49,7 +58,7 @@ function TipField({ tip, setTip }) {
           name="tip"
           value={tip.type === "text" ? tip.value : ""}
           onChange={handleTextField}
-          className="w-full h-full bg-cyan-600 rounded-sm placeholder:text-[23px] placeholder:text-cyan-300 placeholder:text-center text-right px-3 text-[23px] text-cyan-200 caret-cyan-200 outline-none "
+          className="w-[26vw] md:w-full h-[5.75vh] md:h-full bg-cyan-600 rounded-sm placeholder:text-[16px] md:placeholder:text-[23px] placeholder:text-cyan-300 placeholder:text-center text-right md:px-3 text-[23px] text-cyan-200 caret-cyan-200 outline-none "
         />
       </div>
     </fieldset>

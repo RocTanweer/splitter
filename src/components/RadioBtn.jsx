@@ -5,7 +5,7 @@ function RadioBtn({ id, radioValue, name, tip, setTip }) {
   };
 
   return (
-    <div className="relative w-[117px] h-[48px] text-center">
+    <div className="relative w-[26vw] md:w-[117px] h-[5.75vh] md:h-[48px] text-center">
       <input
         type="radio"
         checked={tip.type === "radio" && tip.value === radioValue}
