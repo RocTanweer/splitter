@@ -19,8 +19,16 @@ function App() {
     "Number of People": { value: "", isInvalid: false },
   });
 
-  const tipAmountPerPerson = null;
-  const totalAmountPerPerson = null;
+  let tipAmountPerPerson = 0;
+  let totalAmountPerPerson = 0;
+  let totalBill = inputsState["Bill"].value;
+  let totalPeople = inputsState["Number of People"].value;
+
+  if (totalBill && totalPeople) {
+    let totalTip = tip.value ? totalBill * (tip.value / 100) : 0;
+    totalAmountPerPerson = ((totalBill + totalTip) / totalPeople).toFixed(2);
+    tipAmountPerPerson = (totalTip / totalPeople).toFixed(2);
+  }
 
   function handleInputs(newValue, label) {
     let update1 = {
@@ -86,7 +94,9 @@ function App() {
                     <p className="text-xs text-cyan-400">/ person</p>
                   </div>
 
-                  <p className="text-cyan-100 text-5xl">$0.00</p>
+                  <p className="text-cyan-100 text-5xl">
+                    ${tipAmountPerPerson}
+                  </p>
                 </div>
                 <div className="flex justify-between items-center w-full">
                   <div>
@@ -94,7 +104,9 @@ function App() {
                     <p className="text-xs text-cyan-400">/ person</p>
                   </div>
 
-                  <p className="text-cyan-100 text-5xl">$0.00</p>
+                  <p className="text-cyan-100 text-5xl">
+                    ${totalAmountPerPerson}
+                  </p>
                 </div>
               </div>
 
