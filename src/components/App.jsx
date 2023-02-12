@@ -52,6 +52,14 @@ function App() {
     });
   }
 
+  function handleResetBtn() {
+    setTip({});
+    setInputsState({
+      Bill: { value: "", isInvalid: false },
+      "Number of People": { value: "", isInvalid: false },
+    });
+  }
+
   return (
     <main className="flex justify-center items-center w-full h-auto md:h-screen bg-cyan-500">
       <div className="flex justify-between items-center flex-col gap-10 md:gap-0 w-full md:w-[923px] h-auto md:h-[624px] mx-auto py-14 md:p-0  md:-translate-y-9">
@@ -114,7 +122,10 @@ function App() {
                 </div>
               </div>
 
-              <button className="w-full bg-cyan-100 text-cyan-200 py-3 text-xl rounded-sm uppercase hover:bg-cyan-500 transition duration-300 ease-in-out focus-visible:bg-cyan-500 focus-visible:outline-none active:bg-cyan-100">
+              <button
+                onClick={handleResetBtn}
+                className="w-full bg-cyan-100 text-cyan-200 py-3 text-xl rounded-sm uppercase hover:bg-cyan-500 transition duration-300 ease-in-out focus-visible:bg-cyan-500 focus-visible:outline-none active:bg-cyan-100"
+              >
                 Reset
               </button>
             </div>
